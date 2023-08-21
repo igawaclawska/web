@@ -3,6 +3,7 @@ import { OrangeRoundButton } from "../components/allButtons.sc";
 import { FormContainer } from "../components/FormPage.sc";
 import {
   zeeguuOrange,
+  zeeguuVarmYellow,
   zeeguuDarkOrange,
   zeeguuVeryLightYellow,
   zeeguuVeryLightOrange,
@@ -79,7 +80,7 @@ let PageBackground = styled.div`
   margin-top: -1em;
   padding-top: 1em;
   padding-bottom: 1em;
-  background: ${zeeguuVeryLightOrange};
+  background: ${zeeguuOrange};
 `;
 
 let VideoLink = styled.p`

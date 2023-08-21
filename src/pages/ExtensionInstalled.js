@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import LocalStorage from "../assorted/LocalStorage";
 
 export default function ExtensionInstalled({ api }) {
-
   useEffect(() => {
     api.logUserActivity(api.OPEN_EXTENSION_INSTALLED);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -19,11 +18,11 @@ export default function ExtensionInstalled({ api }) {
           <h1>
             Extension installed!
             {/* {strings.congratulations} */}
-            </h1>
+          </h1>
           <p>
             Make sure to pin the extension for easier access
             {/* {strings.pinExtension} */}
-            </p>
+          </p>
           {/* <s.VideoLink>Learn how it works by watching
             <a href="https://vimeo.com/715531198" 
             target="_blank" 
@@ -36,21 +35,19 @@ export default function ExtensionInstalled({ api }) {
           />
           <s.LinkContainer>
             {getUserSession() ? (
-              <s.OrangeButton>
-                <a href="/articles">
-                Go to Zeeguu
-                  {/* {strings.goToArticles} */}
-                  </a>
-              </s.OrangeButton>
+              <a href="/articles">
+                <s.OrangeButton>Go to Zeeguu</s.OrangeButton>
+                {/* {strings.goToArticles} */}
+              </a>
             ) : (
               <>
-                <s.OrangeButton>
-                  <a href="/login">{strings.login}</a>
-                </s.OrangeButton>
+                <a href="/login">
+                  <s.OrangeButton>{strings.login}</s.OrangeButton>
+                </a>
 
-                <s.OrangeButton>
-                  <a href="/create_account">{strings.createAccount}</a>
-                </s.OrangeButton>
+                <a href="/create_account">
+                  <s.OrangeButton>{strings.createAccount}</s.OrangeButton>
+                </a>
               </>
             )}
           </s.LinkContainer>
