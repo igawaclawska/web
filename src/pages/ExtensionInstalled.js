@@ -20,10 +20,10 @@ export default function ExtensionInstalled({ api }) {
             Extension installed!
             {/* {strings.congratulations} */}
             </h1>
-          <h4>
+          <p>
             Make sure to pin the extension for easier access
             {/* {strings.pinExtension} */}
-            </h4>
+            </p>
           {/* <s.VideoLink>Learn how it works by watching
             <a href="https://vimeo.com/715531198" 
             target="_blank" 

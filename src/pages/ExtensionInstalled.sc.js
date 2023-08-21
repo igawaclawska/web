@@ -16,8 +16,8 @@ const ExtensionInstalledWrapper = styled.div`
   h1 {
     margin-block-start: 0em;
     margin-block-end: 0em;
-    font-size: 1.3em;
-    font-weight: 400;
+    font-size: 1.5em;
+    font-weight: 600;
   }
   h4{
     font-size: 1.5em;
@@ -25,8 +25,9 @@ const ExtensionInstalledWrapper = styled.div`
     margin-block-end: 0.3em;
   }
   p {
-    font-size: 0.9em;
-    margin-block-end: 0em;
+    font-size: 1em;
+    font-weight:600;
+    /* margin-block-end: 0em; */
   }
 `;
 
@@ -39,7 +40,7 @@ let LinkContainer = styled.div`
 let ExtensionContainer = styled(FormContainer)`
   width: 40em;
   max-width: 80%;
-  padding: 1.3em;
+  padding: 2em;
 `;
 
 const OrangeButton = styled.button`
