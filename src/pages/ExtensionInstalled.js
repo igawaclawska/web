@@ -16,14 +16,20 @@ export default function ExtensionInstalled({ api }) {
       <z.LogoOnTop />
       <s.ExtensionContainer>
         <s.ExtensionInstalledWrapper>
-          <h1>{strings.congratulations}</h1>
-          <h4>{strings.pinExtension}</h4>
-          <s.VideoLink>Learn how it works by watching
+          <h1>
+            Extension installed!
+            {/* {strings.congratulations} */}
+            </h1>
+          <h4>
+            Make sure to pin the extension for easier access
+            {/* {strings.pinExtension} */}
+            </h4>
+          {/* <s.VideoLink>Learn how it works by watching
             <a href="https://vimeo.com/715531198" 
             target="_blank" 
             rel="noreferrer" 
             onClick={() => LocalStorage.setClickedVideo()}> this video</a>
-          </s.VideoLink>
+          </s.VideoLink> */}
           <img
             src={"https://zeeguu.org/static/images/zeeguuExtension.gif"}
             alt="How to pin Chrome Extension to Chrome Toolbar gif"
@@ -31,7 +37,10 @@ export default function ExtensionInstalled({ api }) {
           <s.LinkContainer>
             {getUserSession() ? (
               <s.OrangeButton>
-                <a href="/articles">{strings.goToArticles}</a>
+                <a href="/articles">
+                Go to Zeeguu
+                  {/* {strings.goToArticles} */}
+                  </a>
               </s.OrangeButton>
             ) : (
               <>
