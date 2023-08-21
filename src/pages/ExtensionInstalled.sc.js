@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { OrangeRoundButton } from "../components/allButtons.sc";
 import { FormContainer } from "../components/FormPage.sc";
 import {
   zeeguuOrange,
+  zeeguuDarkOrange,
   zeeguuVeryLightYellow,
   zeeguuVeryLightOrange,
   zeeguuTransparentLightOrange,
@@ -43,20 +45,33 @@ let ExtensionContainer = styled(FormContainer)`
   padding: 2em;
 `;
 
-const OrangeButton = styled.button`
-  min-height: 4em;
+const OrangeButton = styled(OrangeRoundButton)`
+  padding: 0.8em 2em;
   width: 20em;
-  margin: 0em 1em 0em 1em;
-  background: ${zeeguuOrange};
-  border: 0.3em solid ${zeeguuOrange};
-  border-radius: 7em;
+  border-radius: 4em;
+  font-weight: 600;
+  border-bottom: solid 0.2em ${zeeguuDarkOrange};
 
-  a {
+  a{
     font-weight: 600;
-    font-size: 1.5em;
     color: white;
   }
 `;
+
+// const OrangeButton = styled.button`
+//   min-height: 4em;
+//   width: 20em;
+//   margin: 0em 1em 0em 1em;
+//   background: ${zeeguuOrange};
+//   border: 0.3em solid ${zeeguuOrange};
+//   border-radius: 7em;
+
+//   a {
+//     font-weight: 600;
+//     font-size: 1.5em;
+//     color: white;
+//   }
+// `;
 
 let PageBackground = styled.div`
   width: 100%;
