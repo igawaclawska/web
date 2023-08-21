@@ -31,7 +31,7 @@ export default function ExtensionInstalled({ api }) {
             onClick={() => LocalStorage.setClickedVideo()}> this video</a>
           </s.VideoLink> */}
           <img
-            src={"https://zeeguu.org/static/images/zeeguuExtension.gif"}
+            src={"../static/images/pin_extension.gif"}
             alt="How to pin Chrome Extension to Chrome Toolbar gif"
           />
           <s.LinkContainer>

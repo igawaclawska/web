@@ -10,7 +10,8 @@ import {
 const ExtensionInstalledWrapper = styled.div`
   text-align: center;
   img {
-    width: 100%;
+    width: 60%;
+    border-radius: 0.25em;
   }
   h1 {
     margin-block-start: 0em;
