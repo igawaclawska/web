@@ -18,6 +18,7 @@ import SessionStorage from "../assorted/SessionStorage";
 import SettingsItem from "./settings_page_shared/SettingsItem";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import DeleteAccountButton from "./DeleteAccountButton";
+import ListOfSettingItems from "./settings_page_shared/ListOfSettingItems";
 
 export default function Settings({ api, setUser }) {
   const [userDetails, setUserDetails] = useState(null);
@@ -189,52 +190,32 @@ export default function Settings({ api, setUser }) {
     <scs.StyledWrapper>
       <scs.PageHeading>{strings.settings}</scs.PageHeading>
       <h4>My Account</h4>
-      <SettingsItem>
-        Profile Details <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
-      </SettingsItem>
-      <SettingsItem>
-        {" "}
-        Change Password<ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
-      </SettingsItem>
-      <SettingsItem>
-        {" "}
-        Languages <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
-      </SettingsItem>
+      <ListOfSettingItems>
+        <SettingsItem>Profile Details</SettingsItem>
+        <SettingsItem> Change Password</SettingsItem>
+        <SettingsItem> Languages</SettingsItem>
+      </ListOfSettingItems>
       <h4>Reading Preferences</h4>
-      <SettingsItem>
-        {" "}
-        Interests <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
-      </SettingsItem>
-      <SettingsItem>
-        {" "}
-        Non-Interests <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
-      </SettingsItem>
+      <ListOfSettingItems>
+        <SettingsItem> Interests</SettingsItem>
+        <SettingsItem> Non-Interests</SettingsItem>
+      </ListOfSettingItems>
       </scs.StyledWrapper>
-      
 
-      // <s.FormContainer> */}
-      // <scs.StyledSettings> */}
-     //<form className="formSettings">
-          //  <h5>{errorMessage}</h5> 
+     // {/* <s.FormContainer> */}
+     // {/* <scs.StyledSettings> */}
+    //  {/* <form className="formSettings">
+     //       <h5>{errorMessage}</h5> 
 
-   // <>
-    //  <PageTitle>{strings.settings}</PageTitle>
-
-    //  <s.FormContainer>
-     //   <scs.StyledSettings>
-     //     <form className="formSettings">
-     // //      <h5>{errorMessage}</h5>
-      //      <b>Account Settings</b>
-      //      <hr></hr>
       //      <label>{strings.name}</label>
-      //      <input
-      //        name="name"
-      //        value={userDetails.name}
-      //        onChange={(e) =>
-      //          setUserDetails({ ...userDetails, name: e.target.value })
-      //        }
-      //      />
-      //      <br />
+     //       <input
+     //         name="name"
+     //         value={userDetails.name}
+    //          onChange={(e) =>
+     //           setUserDetails({ ...userDetails, name: e.target.value })
+     //         }
+     //       />
+     //       <br />
 
        //     <label>{strings.email}</label>
        //     <input
