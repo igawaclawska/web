@@ -9,3 +9,19 @@ export const StyledSettings = styled.div`
     padding-top: 1rem;
   }
 `;
+
+export const StyledWrapper = styled.div`
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+`;
+
+export const PageHeading = styled.h1`
+  font-size: 32px;
+  font-weight: 600;
+`;

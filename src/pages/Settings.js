@@ -15,6 +15,8 @@ import { saveUserInfoIntoCookies } from "../utils/cookies/userInfo";
 import { PageTitle } from "../components/PageTitle";
 import Feature from "../features/Feature";
 import SessionStorage from "../assorted/SessionStorage";
+import SettingsItem from "./settings_page_shared/SettingsItem";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import DeleteAccountButton from "./DeleteAccountButton";
 
 export default function Settings({ api, setUser }) {
@@ -184,155 +186,229 @@ export default function Settings({ api, setUser }) {
   }
 
   return (
-    <>
-      <PageTitle>{strings.settings}</PageTitle>
+    <scs.StyledWrapper>
+      <scs.PageHeading>{strings.settings}</scs.PageHeading>
+      <h4>My Account</h4>
+      <SettingsItem>
+        Profile Details <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
+      </SettingsItem>
+      <SettingsItem>
+        {" "}
+        Change Password<ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
+      </SettingsItem>
+      <SettingsItem>
+        {" "}
+        Languages <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
+      </SettingsItem>
+      <h4>Reading Preferences</h4>
+      <SettingsItem>
+        {" "}
+        Interests <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
+      </SettingsItem>
+      <SettingsItem>
+        {" "}
+        Non-Interests <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
+      </SettingsItem>
+      </scs.StyledWrapper>
+      
 
-      <s.FormContainer>
-        <scs.StyledSettings>
-          <form className="formSettings">
-            <h5>{errorMessage}</h5>
-            <b>Account Settings</b>
-            <hr></hr>
-            <label>{strings.name}</label>
-            <input
-              name="name"
-              value={userDetails.name}
-              onChange={(e) =>
-                setUserDetails({ ...userDetails, name: e.target.value })
-              }
-            />
-            <br />
+      // <s.FormContainer> */}
+      // <scs.StyledSettings> */}
+     //<form className="formSettings">
+          //  <h5>{errorMessage}</h5> 
 
-            <label>{strings.email}</label>
-            <input
-              type="email"
-              value={userDetails.email}
-              onChange={(e) =>
-                setUserDetails({ ...userDetails, email: e.target.value })
-              }
-            />
+   // <>
+    //  <PageTitle>{strings.settings}</PageTitle>
 
-            <br />
-            <br />
-            <label>{strings.learnedLanguage}</label>
-            <UiLanguageSelector
-              languages={languages.learnable_languages}
-              selected={language_for_id(
-                userDetails.learned_language,
-                languages.learnable_languages,
-              )}
-              onChange={(e) => {
-                let code =
-                  e.target[e.target.selectedIndex].getAttribute("code");
-                setUserDetails({
-                  ...userDetails,
-                  learned_language: code,
-                });
-              }}
-            />
+    //  <s.FormContainer>
+     //   <scs.StyledSettings>
+     //     <form className="formSettings">
+     // //      <h5>{errorMessage}</h5>
+      //      <b>Account Settings</b>
+      //      <hr></hr>
+      //      <label>{strings.name}</label>
+      //      <input
+      //        name="name"
+      //        value={userDetails.name}
+      //        onChange={(e) =>
+      //          setUserDetails({ ...userDetails, name: e.target.value })
+      //        }
+      //      />
+      //      <br />
 
-            <Select
-              elements={CEFR_LEVELS}
-              label={(e) => e.label}
-              val={(e) => e.value}
-              updateFunction={setCEFR}
-              current={cefr}
-            />
+       //     <label>{strings.email}</label>
+       //     <input
+       //       type="email"
+       //       value={userDetails.email}
+       //       onChange={(e) =>
+       //         setUserDetails({ ...userDetails, email: e.target.value })
+       //       }
+       //     />
 
-            <br />
-            <br />
+       //     <br />
+       //     <br />
+       //     <label>{strings.learnedLanguage}</label>
+        //    <UiLanguageSelector
+       //       languages={languages.learnable_languages}
+         //     selected={language_for_id(
+         //       userDetails.learned_language,
+         //       languages.learnable_languages,
+         //     )}
+         //     onChange={(e) => {
+         //       let code =
+         //         e.target[e.target.selectedIndex].getAttribute("code");
+         //       setUserDetails({
+         //         ...userDetails,
+         //         learned_language: code,
+         //       });
+         //     }}
+         //   />
 
-            <label>{strings.nativeLanguage}</label>
-            <UiLanguageSelector
-              languages={languages.native_languages}
-              selected={language_for_id(
-                userDetails.native_language,
-                languages.native_languages,
-              )}
-              onChange={nativeLanguageUpdated}
-            />
+          //  {/*<label>{strings.levelOfLearnedLanguage}</label>*/}
+    //  {/* <Select
+       //     <Select
+       //       elements={CEFR_LEVELS}
+       //       label={(e) => e.label}
+       //       val={(e) => e.value}
+       //       updateFunction={setCEFR}
+       //       current={cefr}
+       //     />
 
-            <label>Exercise Type Preferences</label>
-            <div style={{ display: "flex" }} className="form-group">
-              <input
-                style={{ width: "1.5em" }}
-                type={"checkbox"}
-                checked={audioExercises}
-                onChange={handleAudioExercisesChange}
-              />
-              <label>
-                Include Audio Exercises{" "}
-                {SessionStorage.isAudioExercisesEnabled()
-                  ? ""
-                  : "(Temporaly Disabled)"}
-              </label>
-            </div>
-            {Feature.merle_exercises() && (
-              <div style={{ display: "flex" }} className="form-group">
-                <input
-                  style={{ width: "1.5em" }}
-                  type={"checkbox"}
-                  checked={productiveExercises}
-                  onChange={handleProductiveExercisesChange}
-                />
-                <label>Enable Productive Exercises</label>
-              </div>
-            )}
-            <div>
-              <s.FormButton onClick={handleSave}>
-                <span>{strings.save}</span>
-              </s.FormButton>
-            </div>
-            {!user.is_teacher && (
-              <>
-                <b>Class Management</b>
-                <hr></hr>
-                <p className="current-class-of-student">
-                  <b>
-                    {studentIsInCohort
-                      ? strings.yourCurrentClassIs + currentCohort
-                      : strings.youHaveNotJoinedAClass}
-                  </b>
-                </p>
-                <label className="change-class-string">
-                  {studentIsInCohort ? strings.changeClass : strings.joinClass}
-                </label>
-                <input
-                  type="text"
-                  placeholder={
-                    studentIsInCohort
-                      ? strings.insertNewInviteCode
-                      : strings.insertInviteCode
-                  }
-                  value={inviteCode}
-                  onChange={(event) => handleInviteCodeChange(event)}
-                />
+       //     <br />
+       //    <br />
 
-                {showJoinCohortError && (
-                  <Error message={strings.checkIfInviteCodeIsValid} />
-                )}
+        //    <label>{strings.nativeLanguage}</label>
+        //    <UiLanguageSelector
+        //      languages={languages.native_languages}
+        //      selected={language_for_id(
+        //        userDetails.native_language,
+        //        languages.native_languages,
+        //      )}
+        //      onChange={nativeLanguageUpdated}
+        //    />
 
-                <s.FormButton onClick={saveStudentToClass}>
-                  <span>
-                    {studentIsInCohort
-                      ? strings.changeClass
-                      : strings.joinClass}
-                  </span>
-                </s.FormButton>
-              </>
-            )}
-          </form>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <b>Account Management</b>
-          <hr></hr>
-          <DeleteAccountButton />
-        </scs.StyledSettings>
-      </s.FormContainer>
-    </>
-  );
+         //   <br />
+         //   <br />
+
+          //  <label>Exercise Type Preferences</label>
+          //  <div style={{ display: "flex" }} className="form-group">
+          //    <input
+          //      style={{ width: "1.5em" }}
+           ////     type={"checkbox"}
+          //      checked={audioExercises}
+          //      onChange={handleAudioExercisesChange}
+         //     />
+         //     <label>
+           //     Include Audio Exercises{" "}
+          //      {SessionStorage.isAudioExercisesEnabled()
+          //        ? ""
+          //        : "(Temporaly Disabled)"}
+          //    </label>
+          //  </div>
+          //  {Feature.merle_exercises() && (
+          //    <div style={{ display: "flex" }} className="form-group">
+          //      <input
+          //        style={{ width: "1.5em" }}
+          //        type={"checkbox"}
+          //        checked={productiveExercises}
+          //        onChange={handleProductiveExercisesChange}
+          //      />
+          //      <label>Enable Productive Exercises</label>
+          //    </div>
+          //  )}
+          //  <div>
+          //    <s.FormButton onClick={handleSave}>
+          //      <span>{strings.save}</span>
+          //    </s.FormButton>
+          //  </div>
+         // </form> */}
+
+    //  {/* {!user.is_teacher && (
+       //     <div>
+       //       <p className="current-class-of-student">
+       //         <b>
+       //           {studentIsInCohort
+        //            ? strings.yourCurrentClassIs + currentCohort
+        //            : strings.youHaveNotJoinedAClass}
+        //        </b>
+        //      </p>
+        //      <label className="change-class-string">
+        //        {studentIsInCohort ? strings.changeClass : strings.joinClass}
+        //      </label>
+        //      <input
+        //        type="text"
+        //        placeholder={
+        //          studentIsInCohort
+        //            ? strings.insertNewInviteCode
+        ////            : strings.insertInviteCode
+        ////        }
+        ////        value={inviteCode}
+        ////        onChange={(event) => handleInviteCodeChange(event)}
+        ////      />
+        //    {!user.is_teacher && (
+        //      <>
+        //        <b>Class Management</b>
+        //        <hr></hr>
+         //       <p className="current-class-of-student">
+         //         <b>
+         //           {studentIsInCohort
+         //             ? strings.yourCurrentClassIs + currentCohort
+         //             : strings.youHaveNotJoinedAClass}
+          //        </b>
+          //      </p>
+          //      <label className="change-class-string">
+          //        {studentIsInCohort ? strings.changeClass : strings.joinClass}
+          //      </label>
+           //     <input
+           //       type="text"
+           //       placeholder={
+           //         studentIsInCohort
+           ////           ? strings.insertNewInviteCode
+           ////           : strings.insertInviteCode
+           ////       }
+           ////       value={inviteCode}
+            //      onChange={(event) => handleInviteCodeChange(event)}
+            //    />
+//
+             //   {showJoinCohortError && (
+            //      <Error message={strings.checkIfInviteCodeIsValid} />
+            //    )}
+//
+            //  <s.FormButton onClick={saveStudentToClass}>
+            //    {studentIsInCohort ? strings.changeClass : strings.joinClass}
+           //   </s.FormButton>
+         //   </div>
+       //   )} */}
+     // {/* </scs.StyledSettings> */}
+     // {/* <br />
+       // <br />
+      //  <br />
+      //  <br />
+      //  <br />
+      //  <br /> */}
+     // {/* </s.FormContainer> */}
+   // {/* </scs.StyledWrapper>
+      //          <s.FormButton onClick={saveStudentToClass}>
+      //            <span>
+      //              {studentIsInCohort
+      //                ? strings.changeClass
+      //                : strings.joinClass}
+      //            </span>
+      //          </s.FormButton>
+       //       </>
+       //     )}
+       //   </form>
+       //   <br></br>
+       //   <br></br>
+       //   <br></br>
+        //  <br></br>
+        //  <b>Account Management</b>
+        //  <hr></hr>
+        //  <DeleteAccountButton />
+     //   </scs.StyledSettings>
+ //     </s.FormContainer>
+  //  </> */}
+   );
 }
 
 function language_for_id(id, language_list) {
