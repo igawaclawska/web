@@ -189,8 +189,7 @@ export default function Settings({ api, setUser }) {
   return (
     <scs.StyledWrapper>
       <scs.PageHeading>{strings.settings}</scs.PageHeading>
-      <h4>My Account</h4>
-      <ListOfSettingItems>
+      <ListOfSettingItems header={"My Account"}>
         <SettingsItem path={"/account_settings/profile_details"}>
           Profile Details
         </SettingsItem>
@@ -203,8 +202,8 @@ export default function Settings({ api, setUser }) {
           Languages
         </SettingsItem>
       </ListOfSettingItems>
-      <h4>Reading Preferences</h4>
-      <ListOfSettingItems>
+
+      <ListOfSettingItems header={"Reading Preferences"}> 
         <SettingsItem path={"/account_settings/interests"}>
           {" "}
           Interests
