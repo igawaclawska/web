@@ -15,7 +15,7 @@ import ExercisesRouter from "./exercises/ExercisesRouter";
 import WordsRouter from "./words/_WordsRouter";
 import ReadingHistory from "./words/WordHistory";
 import TeacherRouter from "./teacher/_routing/_TeacherRouter";
-import Settings from "./pages/Settings";
+import SettingsRouter from "./pages/settings_pages/_SettingsRouter";
 import ArticleReader from "./reader/ArticleReader";
 import UserDashboard from "./userDashboard/UserDashboard";
 import { PrivateRouteWithSidebar } from "./PrivateRouteWithSidebar";
@@ -113,8 +113,9 @@ export default function MainAppRouter({
         path="/account_settings"
         api={api}
         setUser={setUser}
-        component={Settings}
+        component={SettingsRouter}
       />
+
       <PrivateRouteWithSidebar
         path="/teacher"
         api={api}
