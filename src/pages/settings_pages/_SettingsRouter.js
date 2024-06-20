@@ -12,7 +12,7 @@ export default function SettingsRouter({ api, setUser }) {
   return (
     <Switch>
       <PrivateRoute
-        path="/account_settings"
+        path="/account_settings/options"
         api={api}
         setUser={setUser}
         component={Settings}
