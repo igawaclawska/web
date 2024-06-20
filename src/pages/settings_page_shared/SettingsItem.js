@@ -5,7 +5,8 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 export default function SettingsItem({ children }) {
   return (
     <s.SettingsItem>
-      {children} <ArrowForwardRoundedIcon sx={{ color: "#808080" }} />
+      {children}{" "}
+      <ArrowForwardRoundedIcon fontSize="small" sx={{ color: "#808080" }} />
     </s.SettingsItem>
   );
 }

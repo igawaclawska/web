@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blue100, blue400, lightGrey } from "../../components/colors";
+import { lightGrey } from "../../components/colors";
 
 const SettingsItem = styled.li`
   box-sizing: border-box;
@@ -18,11 +18,11 @@ const SettingsItem = styled.li`
   /* margin-left: auto;
   margin-right: auto; */
   &:hover {
-   border: 2px solid ${blue400};
+   background-color: #f6f6f6;
   }
   &:active {
-   border: 2px solid ${blue400};
-   background-color:  ${blue100};
+   /* background-color: #f2f2f2; */
+   background-color: #ededed;
   }
 `;
 
