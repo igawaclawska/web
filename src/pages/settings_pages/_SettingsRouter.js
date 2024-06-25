@@ -8,6 +8,7 @@ import Languages from "./Languages";
 import Interests from "./Interests";
 import NonInterests from "./NonInterests";
 import AudioExercises from "./AudioExercises";
+import CurrentClass from "./CurrentClass";
 
 export default function SettingsRouter({ api, setUser }) {
   return (
@@ -45,6 +46,13 @@ export default function SettingsRouter({ api, setUser }) {
         api={api}
         setUser={setUser}
         component={AudioExercises}
+      />
+
+      <PrivateRoute
+        path="/account_settings/current_class"
+        api={api}
+        setUser={setUser}
+        component={CurrentClass}
       />
 
       <PrivateRoute

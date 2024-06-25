@@ -201,16 +201,22 @@ export default function Settings({ api, setUser }) {
           {" "}
           Languages
         </SettingsItem>
+        {!user.is_teacher && (
+          <SettingsItem path={"/account_settings/current_class"}>
+            {" "}
+            My Current Class
+          </SettingsItem>
+        )}
       </ListOfSettingItems>
 
-      <ListOfSettingItems header={"Exercise Preferences"}> 
+      <ListOfSettingItems header={"Exercise Preferences"}>
         <SettingsItem path={"/account_settings/audio_exercises"}>
           {" "}
           Audio Exercises
         </SettingsItem>
       </ListOfSettingItems>
 
-      <ListOfSettingItems header={"Reading Preferences"}> 
+      <ListOfSettingItems header={"Reading Preferences"}>
         <SettingsItem path={"/account_settings/interests"}>
           {" "}
           Interests
