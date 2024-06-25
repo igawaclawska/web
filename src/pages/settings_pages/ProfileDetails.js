@@ -6,6 +6,8 @@ import { saveUserInfoIntoCookies } from "../../utils/cookies/userInfo";
 import LocalStorage from "../../assorted/LocalStorage";
 import strings from "../../i18n/definitions";
 
+import LoadingAnimation from "../../components/LoadingAnimation";
+
 import * as s from "../../components/FormPage.sc";
 import * as scs from "../Settings.sc";
 
@@ -25,8 +27,8 @@ export default function ProfileDetails({ api, setUser }) {
     setUser({
       ...user,
       name: info.name,
-      learned_language: info.learned_language,
-      native_language: info.native_language,
+      // learned_language: info.learned_language,
+      // native_language: info.native_language,
     });
 
     saveUserInfoIntoCookies(info);
@@ -44,6 +46,10 @@ export default function ProfileDetails({ api, setUser }) {
         // }
       });
     });
+  }
+
+  if (!userDetails) {
+    return <LoadingAnimation />;
   }
 
   return (
