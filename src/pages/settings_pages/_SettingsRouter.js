@@ -9,6 +9,7 @@ import Interests from "./Interests";
 import NonInterests from "./NonInterests";
 import AudioExercises from "./AudioExercises";
 import CurrentClass from "./CurrentClass";
+import DeleteAccount from "./DeleteAccount";
 
 export default function SettingsRouter({ api, setUser }) {
   return (
@@ -67,6 +68,13 @@ export default function SettingsRouter({ api, setUser }) {
         api={api}
         setUser={setUser}
         component={NonInterests}
+      />
+
+      <PrivateRoute
+        path="/account_settings/delete_account"
+        api={api}
+        setUser={setUser}
+        component={DeleteAccount}
       />
     </Switch>
   );

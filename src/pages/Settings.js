@@ -226,6 +226,12 @@ export default function Settings({ api, setUser }) {
           Non-Interests
         </SettingsItem>
       </ListOfSettingItems>
+
+      <ListOfSettingItems header={"Account Management"}>
+        <SettingsItem path={"/account_settings/delete_account"}>
+          Delete Account
+        </SettingsItem>
+      </ListOfSettingItems>
     </scs.StyledWrapper>
 
     // {/* <s.FormContainer> */}
