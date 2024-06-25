@@ -28,6 +28,10 @@ const ListOfSettingItems = styled.ul`
   & li:not(:first-child) {
     margin-top: -2px;
   }
+
+  & li:only-child {
+    border-radius: 6px;
+  }
 `;
 
 export { ListOfSettingItems, SettingsSection };

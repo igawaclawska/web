@@ -193,13 +193,20 @@ export default function Settings({ api, setUser }) {
         <SettingsItem path={"/account_settings/profile_details"}>
           Profile Details
         </SettingsItem>
-        <SettingsItem path={"/account_settings/change_password"}>
+        {/* <SettingsItem path={"/account_settings/change_password"}>
           {" "}
           Change Password
-        </SettingsItem>
+        </SettingsItem> */}
         <SettingsItem path={"/account_settings/languages"}>
           {" "}
           Languages
+        </SettingsItem>
+      </ListOfSettingItems>
+
+      <ListOfSettingItems header={"Exercise Preferences"}> 
+        <SettingsItem path={"/account_settings/audio_exercises"}>
+          {" "}
+          Audio Exercises
         </SettingsItem>
       </ListOfSettingItems>
 
