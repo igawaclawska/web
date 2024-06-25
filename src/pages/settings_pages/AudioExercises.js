@@ -30,6 +30,7 @@ export default function AudioExercises({ api, setUser }) {
   const [productiveExercises, setProductiveExercises] = useState(
     preferenceNotSet || LocalStorage.getProductiveExercisesEnabled(),
   );
+  //TODO: Refactor using Zeeguu project logic
 
   useEffect(() => {
     api.getUserDetails((data) => {
